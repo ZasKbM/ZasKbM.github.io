@@ -18,6 +18,7 @@ function main() {
           perdidas = perdidas + (1/cuotaVal[i]);
         }
         else validas[i] =0;
+        if(stakes[i].value == 0) validas[i]=0;
     }
   }
 
@@ -29,7 +30,6 @@ function main() {
         }
     }
     if(perdidas!=0) perdidas =(perdidas);
-    else perdidas= error;
   }
 
   const updateStakes = async t => {
