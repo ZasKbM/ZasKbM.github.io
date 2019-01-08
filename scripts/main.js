@@ -64,14 +64,14 @@ function main() {
       updateStakes();
       texto.innerHTML = `
         <div id="perdido">
-          <p>Esta operación dará ${(1/perdidas).toFixed(2)} euros por euro apostado.</p>
+          <p>Esta operación dará ${(1/perdidas).toFixed(4)} euros por euro apostado.</p>
         </div>`
       ;}
     else if (perdidas > 0){
       updateStakes();
       texto.innerHTML = `
         <div id="ganado">
-          <p>Esta operación dará ${(1/perdidas).toFixed(2)} euros por euro apostado.</p>
+          <p>Esta operación dará ${(1/perdidas).toFixed(4)} euros por euro apostado.</p>
         </div>`
       ;
     }
@@ -83,14 +83,14 @@ function main() {
         updateStakes();
         texto.innerHTML = `
           <div id="perdido">
-            <p>Esta operación dará ${(1/perdidas).toFixed(2)} euros por euro apostado.</p>
+            <p>Esta operación dará ${(1/perdidas).toFixed(4)} euros por euro apostado.</p>
           </div>`
         ;}
       else {
         updateStakes();
         texto.innerHTML = `
           <div id="ganado">
-            <p>Esta operación dará ${(1/perdidas).toFixed(2)} euros por euro apostado.</p>
+            <p>Esta operación dará ${(1/perdidas).toFixed(4)} euros por euro apostado.</p>
           </div>`
         ;
       }
