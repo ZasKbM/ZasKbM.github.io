@@ -100,13 +100,13 @@ function main() {
     }
   };
   const anuncio = async p =>{
-    document.getElementById("siteHeader").innerHTML = "<script data-cfasync='false' type='text/javascript' src='//p345991.clksite.com/adServe/banners?tid=345991_675417_4&type=shadowbox&size=38'></script>";
+    document.getElementById("siteHeader").innerHTML = "<script data-cfasync='false' type='text/javascript' src='//p345991.clksite.com/adServe/banners?tid=345991_675417_5&type=footer&size=37'></script>";
   }
 
   calculaBtn.addEventListener("click", () => {
     veces++;
     calcular();
-    //if (veces%5 == 0) anuncio();
+    if (veces%5 == 0) anuncio();
   });
 }
 window.addEventListener("load", main);
