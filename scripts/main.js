@@ -96,7 +96,7 @@ function main() {
       }
     }
     for (let a = 0; a<3; a++ ){
-      ganancias[a].innerHTML =(cuotaVal[a]*stakes[a].value).toFixed(3);
+      ganancias[a].innerHTML =(cuotaVal[a]*stakes[a].value).toFixed(2);
     }
   };
   const anuncio = async p =>{
@@ -106,7 +106,7 @@ function main() {
   calculaBtn.addEventListener("click", () => {
     veces++;
     calcular();
-    if (veces%5 == 0) anuncio();
+    //if (veces%5 == 0) anuncio();
   });
 }
 window.addEventListener("load", main);
