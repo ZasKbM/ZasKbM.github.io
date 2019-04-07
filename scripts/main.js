@@ -7,8 +7,8 @@ function main() {
   const resultBox = document.getElementById("result");
   let cuotaVal = [cuotas[0].value, cuotas[1].value ,cuotas[2].value];
   let validas =[1,1,1];
-  let perdidas=0
-
+  let perdidas=0;
+  let veces = 0;
   const calculaBtn = document.getElementById("calculaBtn");
 
   const getodds = async p =>{
@@ -96,11 +96,17 @@ function main() {
       }
     }
     for (let a = 0; a<3; a++ ){
-      ganancias[a].innerHTML =(cuotaVal[a]*stakes[a].value).toFixed(2);
+      ganancias[a].innerHTML =(cuotaVal[a]*stakes[a].value).toFixed(3);
     }
   };
+  const anuncio = async p =>{
+    document.getElementById("siteHeader").innerHTML = "<script data-cfasync='false' type='text/javascript' src='//p345991.clksite.com/adServe/banners?tid=345991_675417_4&type=shadowbox&size=38'></script>";
+  }
+
   calculaBtn.addEventListener("click", () => {
+    veces++;
     calcular();
+    if (veces%5 == 0) anuncio();
   });
 }
 window.addEventListener("load", main);
