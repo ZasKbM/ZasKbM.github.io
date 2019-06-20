@@ -3,9 +3,10 @@
 function main() {
   const cuotas =[document.getElementById("cuota1"), document.getElementById("cuota2"), document.getElementById("cuota3")];
   const stakes =[document.getElementById("stake1"), document.getElementById("stake2"), document.getElementById("stake3")];
+  const freebets =[document.getElementById("free1"), document.getElementById("free2"), document.getElementById("free3")];
   const ganancias =[document.getElementById("Ganancias1"),document.getElementById("Ganancias2"),document.getElementById("Ganancias3")];
   const resultBox = document.getElementById("result");
-  let cuotaVal = [cuotas[0].value, cuotas[1].value ,cuotas[2].value];
+  let cuotaVal = [cuotas[0].value, cuotas[1].value, cuotas[2].value];
   let validas =[1,1,1];
   let perdidas=0;
   let veces = 0;
@@ -16,6 +17,10 @@ function main() {
     validas =[1,1,1];
     for (let i = 0; i<3; i++){
         if(cuotaVal[i]!=0){
+          if (freebets[i].checked) {
+            console.log("hola");
+            cuotaVal[i] -= 1;
+          }
           perdidas = perdidas + (1/cuotaVal[i]);
         }
         else validas[i] =0;
