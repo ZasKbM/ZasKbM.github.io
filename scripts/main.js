@@ -107,7 +107,16 @@ function main() {
   const anuncio = async p =>{
     document.getElementById("siteHeader").innerHTML = "<script data-cfasync='false' type='text/javascript' src='//p345991.clksite.com/adServe/banners?tid=345991_675417_5&type=footer&size=37'></script>";
   }
-
+  document.getElementById("limpiarBtn0").addEventListener("click", () =>{
+    for(let i=0; i<3; i++){
+    cuotas[i].value = 0;
+    }
+  });
+  document.getElementById("limpiarBtn1").addEventListener("click", () =>{
+    for(let i=0; i<3; i++){
+    stakes[i].value = 0;
+    }
+  });
   calculaBtn.addEventListener("click", () => {
     veces++;
     calcular();
