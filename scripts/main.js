@@ -10,6 +10,8 @@ function main() {
   let validas =[1,1,1];
   let perdidas=0;
   let veces = 0;
+  let free = 0;
+  let txt = "";
   const calculaBtn = document.getElementById("calculaBtn");
 
   const getodds = async p =>{
@@ -18,7 +20,7 @@ function main() {
     for (let i = 0; i<3; i++){
         if(cuotaVal[i]!=0){
           if (freebets[i].checked) {
-            console.log("hola");
+            free = 1;
             cuotaVal[i] -= 1;
           }
           perdidas = perdidas + (1/cuotaVal[i]);
@@ -49,7 +51,6 @@ function main() {
     for(let i=0; i<3; i++){
       if (cuotaVal[i]!=0) stakes[i].value = (total/(cuotaVal[i]*perdidas)).toFixed(2);
     }
-    console.log(total);
   }
 
   const findOdds = async t => {
@@ -61,20 +62,47 @@ function main() {
       if(stakes[i].value !=0)cuotas[i].value= (total/stakes[i].value).toFixed(2);
     }
   }
+  const freebet = async p => {
+    let totfb = 0;
+    let tot = 0;
+    let absperd, perce = 0.0;
+    for (let i = 0; i<3; i++){
+        if(cuotaVal[i]!=0){
+          tot += parseInt(stakes[i].value);
+          if (freebets[i].checked)  totfb += parseInt(stakes[i].value);
+          absperd = cuotaVal[i]*stakes[i].value
+        }
+    };
+    console.log("Guanys: "+ absperd+" total: "+tot+" perdues: ");
+    absperd = tot - absperd;
+    console.log(absperd);
+    perce = 1 - (absperd / totfb);
+    perce *=100;
+    if (perce >= 70) {
+      txt += `<div id="ganado">
+        <p>Esta operación dará un ${perce.toFixed(2)}% de rentabilidad en el caso de las freebets.</p>
+        </div>`
+    }
+    else {
+      txt += `<div id="perdido">
+        <p>Esta operación dará un ${perce.toFixed(2)}% de rentabilidad en el caso de las freebets.</p>
+        </div>`
+    }
+  }
 
   const calcular = async p => {
     getodds();
     perdida();
     if(perdidas > 1.05){
       updateStakes();
-      texto.innerHTML = `
+      txt = `
         <div id="perdido">
           <p>Esta operación dará ${(1/perdidas).toFixed(4)} euros por euro apostado.</p>
         </div>`
       ;}
     else if (perdidas > 0){
       updateStakes();
-      texto.innerHTML = `
+      txt = `
         <div id="ganado">
           <p>Esta operación dará ${(1/perdidas).toFixed(4)} euros por euro apostado.</p>
         </div>`
@@ -86,14 +114,14 @@ function main() {
       perdida();
       if(perdidas > 1.05){
         updateStakes();
-        texto.innerHTML = `
+        txt = `
           <div id="perdido">
             <p>Esta operación dará ${(1/perdidas).toFixed(4)} euros por euro apostado.</p>
           </div>`
         ;}
       else {
         updateStakes();
-        texto.innerHTML = `
+        txt = `
           <div id="ganado">
             <p>Esta operación dará ${(1/perdidas).toFixed(4)} euros por euro apostado.</p>
           </div>`
@@ -104,9 +132,6 @@ function main() {
       ganancias[a].innerHTML =(cuotaVal[a]*stakes[a].value).toFixed(2);
     }
   };
-  const anuncio = async p =>{
-    document.getElementById("siteHeader").innerHTML = "<script data-cfasync='false' type='text/javascript' src='//p345991.clksite.com/adServe/banners?tid=345991_675417_5&type=footer&size=37'></script>";
-  }
   document.getElementById("limpiarBtn0").addEventListener("click", () =>{
     for(let i=0; i<3; i++){
     cuotas[i].value = 0;
@@ -118,9 +143,11 @@ function main() {
     }
   });
   calculaBtn.addEventListener("click", () => {
-    veces++;
+    free = 0;
+    txt = "";
     calcular();
-    if (veces%5 == 0) anuncio();
+    if (free == 1) freebet();
+    texto.innerHTML = txt;
   });
 }
 window.addEventListener("load", main);
