@@ -68,14 +68,12 @@ function main() {
     let absperd, perce = 0.0;
     for (let i = 0; i<3; i++){
         if(cuotaVal[i]!=0){
-          tot += parseInt(stakes[i].value);
-          if (freebets[i].checked)  totfb += parseInt(stakes[i].value);
+          tot += parseDouble(stakes[i].value);
+          if (freebets[i].checked)  totfb += parseDouble(stakes[i].value);
           absperd = cuotaVal[i]*stakes[i].value
         }
     };
-    console.log("Guanys: "+ absperd+" total: "+tot+" perdues: ");
     absperd = tot - absperd;
-    console.log(absperd);
     perce = 1 - (absperd / totfb);
     perce *=100;
     if (perce >= 70) {
