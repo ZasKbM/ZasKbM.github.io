@@ -25,7 +25,7 @@ function main() {
           }
           perdidas = perdidas + (1/cuotaVal[i]);
         }
-        else { validas[i] =0; }
+        else validas[i] =0;
         if(stakes[i].value === 0) validas[i]=0;
     }
   }
