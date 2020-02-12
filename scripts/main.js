@@ -14,7 +14,7 @@ function main() {
   let txt = "";
   const calculaBtn = document.getElementById("calculaBtn");
 
-  const getodds = async p =>{
+  const getodds = async (p) =>{
     cuotaVal = [cuotas[0].value, cuotas[1].value ,cuotas[2].value];
     validas =[1,1,1];
     for (let i = 0; i<3; i++){
@@ -25,35 +25,35 @@ function main() {
           }
           perdidas = perdidas + (1/cuotaVal[i]);
         }
-        else validas[i] =0;
-        if(stakes[i].value == 0) validas[i]=0;
+        else { validas[i] =0; }
+        if(stakes[i].value === 0) validas[i]=0;
     }
   }
 
-  const perdida = async t => {
+  const perdida = async (t) => {
     perdidas=0;
     for (let i = 0; i<3; i++){
         if(cuotaVal[i]!=0){
           perdidas = perdidas + (1/cuotaVal[i]);
         }
     }
-    if(perdidas!=0) perdidas =(perdidas);
+    if(perdidas!==0) perdidas =(perdidas);
   }
 
-  const updateStakes = async t => {
+  const updateStakes = async (t) => {
     let usable = [];
     for(let i=0; i<3; i++){
       if(validas[i]) usable.push(stakes[i].value/((1/cuotaVal[i])/perdidas));
     }
   usable.sort();
     let total = usable[0];
-    if (total == null) total =100;
+    if (total === null) total =100;
     for(let i=0; i<3; i++){
       if (cuotaVal[i]!=0) stakes[i].value = (total/(cuotaVal[i]*perdidas)).toFixed(2);
     }
   }
 
-  const findOdds = async t => {
+  const findOdds = async (t) => {
     let total =0;
     for(let i=0; i<3; i++){
       total += parseInt(stakes[i].value);
@@ -62,17 +62,17 @@ function main() {
       if(stakes[i].value !=0)cuotas[i].value= (total/stakes[i].value).toFixed(2);
     }
   }
-  const freebet = async p => {
+  const freebet = async (p) => {
     let totfb = 0;
     let tot = 0;
     let absperd, perce = 0.0;
     for (let i = 0; i<3; i++){
-        if(cuotaVal[i]!=0){
+        if(cuotaVal[i]!==0){
           tot += parseInt(stakes[i].value);
-          if (freebets[i].checked)  totfb += parseInt(stakes[i].value, 10);
+          if (freebets[i].checked) { totfb += parseInt(stakes[i].value, 10); }
           absperd = cuotaVal[i]*stakes[i].value
         }
-    };
+    }
     absperd = tot - absperd;
     perce = 1 - (absperd / totfb);
     perce *=100;
@@ -88,7 +88,7 @@ function main() {
     }
   }
 
-  const calcular = async p => {
+  const calcular = async (p) => {
     getodds();
     perdida();
     if(perdidas > 1.05){
@@ -135,7 +135,7 @@ function main() {
     cuotas[i].value = 0;
     }
   });
-  document.getElementById("limpiarBtn1").addEventListener("click", () =>{
+  document.getElementById("limpiarBtn1").addEventListener("click", () => {
     for(let i=0; i<3; i++){
     stakes[i].value = 0;
     }
@@ -144,7 +144,7 @@ function main() {
     free = 0;
     txt = "";
     calcular();
-    if (free == 1) freebet();
+    if (free === true) { freebet(); }
     texto.innerHTML = txt;
   });
 }
