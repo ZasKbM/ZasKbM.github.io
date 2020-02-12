@@ -26,7 +26,9 @@ function main() {
           perdidas = perdidas + (1/cuotaVal[i]);
         }
         else validas[i] =0;
-        if(stakes[i].value === 0) validas[i]=0;
+        if(stakes[i].value === 0) {
+          validas[i]=0;
+        }
     }
   }
 
@@ -43,7 +45,9 @@ function main() {
   const updateStakes = async (t) => {
     let usable = [];
     for(let i=0; i<3; i++){
-      if(validas[i]) usable.push(stakes[i].value/((1/cuotaVal[i])/perdidas));
+      if(validas[i]) {
+        usable.push(stakes[i].value/((1/cuotaVal[i])/perdidas));
+      }
     }
   usable.sort();
     let total = usable[0];
@@ -70,7 +74,7 @@ function main() {
         if(cuotaVal[i]!==0){
           tot += parseInt(stakes[i].value);
           if (freebets[i].checked) { totfb += parseInt(stakes[i].value, 10); }
-          absperd = cuotaVal[i]*stakes[i].value
+          absperd = cuotaVal[i]*stakes[i].value;
         }
     }
     absperd = tot - absperd;
@@ -79,7 +83,7 @@ function main() {
     if (perce >= 70) {
       txt += `<div id="ganado">
         <p>Esta operación dará un ${perce.toFixed(2)}% de rentabilidad en el caso de las freebets.</p>
-        </div>`
+        </div>`;
     }
     else {
       txt += `<div id="perdido">
