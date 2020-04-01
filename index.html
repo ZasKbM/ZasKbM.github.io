@@ -1,58 +1,84 @@
 <html lang="en">
-   <head>
-     <link rel="shortcut icon" href="favicon.ico"/>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <link rel="stylesheet" href="./CSS/style.css">
-      <title id="siteTitle">Calculadora limpias</title>
-   </head>
-   <body>
-      <!-- Google Tag Manager (noscript) -->
-      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N27VKR3"
-      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-      <!-- End Google Tag Manager (noscript) -->
-      <header id="siteHeader">
-      </header>
-      <section class="container">
-        <table>
+
+<head>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/checkbox.css">
+    <script src="https://use.fontawesome.com/26de445940.js"></script>
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link type="javascript" href="scripts/bootstrap.min.js">
+    <title id="siteTitle">Calculadora limpias</title>
+</head>
+
+<body>
+    <header id="siteHeader">
+    </header>
+    <section class="container">
+        <table class="table table-striped">
             <tr>
-              <th>Cuotas</th>
-              <th>Stake</th>
-              <th>Ganancias</th>
-              <th>Freebet</th>
+                <th>Cuotas</th>
+                <th>Stake</th>
+                <th class="text-center">Ganancias</th>
+                <th class="text-center">Freebet</th>
             </tr>
             <tr>
-              <td>Cuota: <input id="cuota1" tabindex="1" type="number" name="quantity" min="0" max="100" step="0.001 "value="0"></td>
-              <td><input id="stake1" tabindex="4" type="number" name="quantity" min="0" max= "10000" step="0.01" value="0"></td>
-              <td id= "Ganancias1"> 0.0 </td>
-              <td><input id = "free1" tabindex="7" type="checkbox" name="Freebet" value="Freebet"> </td>
+                <td><input id="cuota1" class="form-control" tabindex="1" type="number" name="quantity" min="0" max="100" step="0.001 " value="0"></td>
+                <td><input id="stake1" class="form-control" tabindex="4" type="number" name="quantity" min="0" max="10000" step="0.01" value="0"></td>
+                <td class="text-center ganancias" id="Ganancias1"> 0.0 </td>
+                <td class="text-center">
+                    <div class="checkbox checkbox-primary">
+                        <input class="styled" id="free1" tabindex="7" type="checkbox" name="Freebet" value="Freebet">
+                        <label for="free1">                        
+                </label>
+                    </div>
+                </td>
             </tr>
             <tr>
-              <td>Cuota: <input id="cuota2" tabindex="2" type="number" name="quantity" min="0" max="100" step="0.001 "value="0"></td>
-              <td><input id="stake2" tabindex="5" type="number" name="quantity" min="0" max= "10000" step="0.01" value="0"></td>
-              <td id= "Ganancias2"> 0.0 </td>
-              <td><input id = "free2" tabindex="8" type="checkbox" name="Freebet" value="Freebet"> </td>
+                <td><input id="cuota2" class="form-control" tabindex="2" type="number" name="quantity" min="0" max="100" step="0.001 " value="0"></td>
+                <td><input id="stake2" class="form-control" tabindex="5" type="number" name="quantity" min="0" max="10000" step="0.01" value="0"></td>
+                <td class="text-center ganancias" id="Ganancias2"> 0.0 </td>
+                <td class="text-center">
+                    <div class="checkbox checkbox-primary">
+                        <input class="styled" id="free2" tabindex="8" type="checkbox" name="Freebet" value="Freebet">
+                        <label for="free2">                        
+                </label>
+                    </div>
+                </td>
             </tr>
             <tr>
-              <td>Cuota: <input id="cuota3" tabindex="3" type="number" name="quantity" min="0" max="100" step="0.001 "value="0"></td>
-              <td><input id="stake3" tabindex="6" type="number" name="quantity" min="0" max= "10000" step="0.01" value="0"></td>
-              <td id= "Ganancias3"> 0.0 </td>
-              <td><input id = "free3" tabindex="9" type="checkbox" name="Freebet" value="Freebet"> </td>
+                <td>
+                    <input id="cuota3" class="form-control" tabindex="3" type="number" name="quantity" min="0" max="100" step="0.001 " value="0"></td>
+                <td><input id="stake3" class="form-control" tabindex="6" type="number" name="quantity" min="0" max="10000" step="0.01" value="0"></td>
+                <td class="text-center ganancias" id="Ganancias3"> 0.0 </td>
+                <td class="text-center">
+                    <div class="checkbox checkbox-primary">
+                        <input class="styled" id="free3" tabindex="9" type="checkbox" name="Freebet" value="Freebet">
+                        <label for="free3">                        
+                    </label>
+                    </div>
+                </td>
             </tr>
             <tr>
-              <td><button id="limpiarBtn0" type="reset">Limpiar cuotas</button></td>
-              <td><button id="limpiarBtn1" type="reset">Limpiar stakes</button></td>
-          </table>
-          <button id="calculaBtn" type="submit">Calcular</button>
-          <form action="https://paypal.me/edubm99" method="post" target="_top">
-          <input type="hidden" name="cmd" value="_s-xclick" />
-          <input type="hidden" name="hosted_button_id" value="BJMANZZVK2RW4" />
-          <input type="image" src="https://www.paypalobjects.com/es_ES/ES/i/btn/btn_donate_SM.gif" border="0" name="submit" title="PayPal - Ahora sin estafa!" alt="Botón Donar con PayPal" />
-          <img alt="" border="0" src="https://www.paypal.com/es_ES/i/scr/pixel.gif" width="1" height="1" />
-          </form>
-          <div id="texto"></div>
-      </section>
-      <script src="./scripts/main.js"></script>
-   </body>
+                <td><button id="limpiarBtn0" type="reset" class="btn btn-outline-primary btn-block">Limpiar cuotas</button></td>
+                <td><button id="limpiarBtn1" type="reset" class="btn btn-outline-primary btn-block">Limpiar stakes</button></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <button id="calculaBtn" type="submit" class="btn btn-success btn-lg btn-block mb-3">Calcular</button>
+        <form action="https://paypal.me/edubm99" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_s-xclick" />
+            <input type="hidden" name="hosted_button_id" value="BJMANZZVK2RW4" />
+            <input type="image" src="https://www.paypalobjects.com/es_ES/ES/i/btn/btn_donate_SM.gif" border="0" name="submit" title="PayPal - Ahora sin estafa!" alt="Botón Donar con PayPal" />
+            <img alt="" border="0" src="https://www.paypal.com/es_ES/i/scr/pixel.gif" width="1" height="1" />
+        </form>
+        <div id="texto"></div>
+    </section>
+    <script src="./scripts/main.js"></script>
+</body>
+
 </html>
