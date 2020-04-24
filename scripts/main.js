@@ -144,5 +144,11 @@ function main() {
         if (free == 1) freebet();
         texto.innerHTML = txt;
     });
+    document.addEventListener("keyup", function(event) {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+        calculaBtn.click();
+  }
+});
 }
 window.addEventListener("load", main);
