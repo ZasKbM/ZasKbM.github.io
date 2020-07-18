@@ -143,7 +143,7 @@ function main() {
         veces++;
         gtag('event', 'Calcular', {
           'event_category': "Engagement",
-          'event_label': "ClickBoto",
+          'event_label': "ClickBoton",
           'value': veces
         });
         calcular();
