@@ -140,6 +140,12 @@ function main() {
     calculaBtn.addEventListener("click", () => {
         free = 0;
         txt = "";
+        veces++;
+        gtag('event', 'Calcular', {
+          'event_category': "Engagement",
+          'event_label': "ClickBoto",
+          'value': veces
+        });
         calcular();
         if (free == 1) freebet();
         texto.innerHTML = txt;
