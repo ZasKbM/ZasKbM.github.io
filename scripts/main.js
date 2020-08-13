@@ -3,7 +3,7 @@
 function main() {
     const cuotas = [document.getElementById("cuota1"), document.getElementById("cuota2"), document.getElementById("cuota3")];
     const stakes = [document.getElementById("stake1"), document.getElementById("stake2"), document.getElementById("stake3")];
-    const freebets = [document.getElementById("free1"), document.getElementById("free2"), document.getElementById("free3")];
+    const freebet = [document.getElementById("free1"), document.getElementById("free2"), document.getElementById("free3")];
     const ganancias = [document.getElementById("Ganancias1"), document.getElementById("Ganancias2"), document.getElementById("Ganancias3")];
     const resultBox = document.getElementById("result");
     let cuotaVal = [cuotas[0].value, cuotas[1].value, cuotas[2].value];
@@ -81,11 +81,11 @@ function main() {
         perce *= 100;
         if (perce >= 70) {
             txt += `<div id="ganado" class="alert alert-success">
-        <p>Esta operación dará un <span class="font-weight-bold">${perce.toFixed(2)}%</span> de rentabilidad en el caso de las freebets.</p>
+        <p>Esta operación dará un <span class="font-weight-bold">${perce.toFixed(2)}%</span> de rentabilidad en el caso de las fb.</p>
         </div>`
         } else {
             txt += `<div id="perdido" class="alert alert-danger">
-        <p>Esta operación dará un <span class="font-weight-bold">${perce.toFixed(2)}%</span> de rentabilidad en el caso de las freebets.</p>
+        <p>Esta operación dará un <span class="font-weight-bold">${perce.toFixed(2)}%</span> de rentabilidad en el caso de las fb.</p>
         </div>`
         }
     }
@@ -97,13 +97,13 @@ function main() {
             updateStakes();
             txt = `
         <div id="perdido" class="alert alert-danger">
-          <p>Esta operación dará <span class="font-weight-bold">${(1/perdidas).toFixed(4)} euros</span> por euro apostado.</p>
+          <p>Esta operación dará <span class="font-weight-bold">${(1/perdidas).toFixed(4)} euros</span> por euro invertido.</p>
         </div>`;
         } else if (perdidas > 0) {
             updateStakes();
             txt = `
         <div id="ganado" class="alert alert-success">
-          <p>Esta operación dará <span class="font-weight-bold">${(1/perdidas).toFixed(4)} euros</span> por euro apostado.</p>
+          <p>Esta operación dará <span class="font-weight-bold">${(1/perdidas).toFixed(4)} euros</span> por euro invertido.</p>
         </div>`;
         } else {
             findOdds();
@@ -113,13 +113,13 @@ function main() {
                 updateStakes();
                 txt = `
           <div id="perdido" class="alert alert-danger">
-            <p>Esta operación dará <span class="font-weight-bold">${(1/perdidas).toFixed(4)} euros</span> por euro apostado.</p>
+            <p>Esta operación dará <span class="font-weight-bold">${(1/perdidas).toFixed(4)} euros</span> por euro invertido.</p>
           </div>`;
             } else {
                 updateStakes();
                 txt = `
           <div id="ganado" class="alert alert-success">
-            <p>Esta operación dará <span class="font-weight-bold">${(1/perdidas).toFixed(4)} euros</span> por euro apostado.</p>
+            <p>Esta operación dará <span class="font-weight-bold">${(1/perdidas).toFixed(4)} euros</span> por euro invertido.</p>
           </div>`;
             }
         }
