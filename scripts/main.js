@@ -5,6 +5,7 @@ function main() {
     const stakes = [document.getElementById("stake1"), document.getElementById("stake2"), document.getElementById("stake3")];
     const freebets = [document.getElementById("free1"), document.getElementById("free2"), document.getElementById("free3")];
     const ganancias = [document.getElementById("Ganancias1"), document.getElementById("Ganancias2"), document.getElementById("Ganancias3")];
+    const balance = document.getElementById("balance");
     const resultBox = document.getElementById("result");
     let cuotaVal = [cuotas[0].value, cuotas[1].value, cuotas[2].value];
     let validas = [1, 1, 1];
@@ -126,6 +127,17 @@ function main() {
         for (let a = 0; a < 3; a++) {
             ganancias[a].innerHTML = (cuotaVal[a] * stakes[a].value).toFixed(2);
         }
+
+        // CALCULAMOS EL BALANCE DEL CRUCE EN €
+        let numOr0 = n => isNaN(n) ? 0 : n;
+
+        let totalStake = 0;
+        stakes.map(item => {
+            console.log(item.value);
+            totalStake += +numOr0(item.value);
+        });
+
+        balance.innerHTML = (((+ganancias[0].innerText) - totalStake).toFixed(2) + '€');
     };
     document.getElementById("limpiarBtn0").addEventListener("click", () => {
         for (let i = 0; i < 3; i++) {
