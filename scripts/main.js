@@ -128,7 +128,7 @@ function main() {
             ganancias[a].innerHTML = (cuotaVal[a] * stakes[a].value).toFixed(2);
         }
 
-        // CALCULAMOS EL BALANCE DEL CRUCE EN €
+        // CALCULAMOS EL BALANCE DEL CRUCE EN   €
         let numOr0 = n => isNaN(n) ? 0 : n;
 
         let totalStake = 0;
