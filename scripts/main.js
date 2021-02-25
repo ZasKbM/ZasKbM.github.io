@@ -134,7 +134,8 @@ function main() {
         let totalStake = 0;
         stakes.map(item => {
             console.log(item.value);
-            totalStake += +numOr0(item.value);
+            //totalStake += +numOr0(item.value);
+            if (!freebets[index].checked) totalStake += +numOr0(item.value);
         });
 
         balance.innerHTML = (((+ganancias[0].innerText) - totalStake).toFixed(2) + '€');
