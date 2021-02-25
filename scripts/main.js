@@ -132,7 +132,7 @@ function main() {
         let numOr0 = n => isNaN(n) ? 0 : n;
 
         let totalStake = 0;
-        stakes.map(item => {
+        stakes.map((item, index) => {
             console.log(item.value);
             //totalStake += +numOr0(item.value);
             if (!freebets[index].checked) totalStake += +numOr0(item.value);
